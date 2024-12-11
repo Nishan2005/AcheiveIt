@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "527064373173",
+    "project_id": "achievelt-c0678",
+    "storage_bucket": "achievelt-c0678.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:527064373173:android:4565ab905227e64d3cebfc",
+        "android_client_info": {
+          "package_name": "com.example.acheive_it"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCFHoh7uBDFNvfrGTl9Gi05JE2544gQi2E"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
