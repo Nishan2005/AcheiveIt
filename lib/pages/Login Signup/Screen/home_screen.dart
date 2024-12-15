@@ -3,7 +3,6 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
 import '../Widget/button.dart';
-import 'login.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});

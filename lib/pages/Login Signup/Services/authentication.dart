@@ -25,7 +25,7 @@ class AuthMethod {
         // add user to your  firestore database
         print(cred.user!.uid);
         await _firestore.collection("users").doc(cred.user!.uid).set({
-          'name': name,
+          'displayName': name,
           'uid': cred.user!.uid,
           'email': email,
         });

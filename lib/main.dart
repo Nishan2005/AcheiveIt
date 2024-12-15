@@ -1,7 +1,5 @@
-import 'package:acheive_it/pages/Login%20Signup/Screen/LandingPage.dart';
-import 'package:acheive_it/pages/Login%20Signup/Screen/login.dart';
 import 'package:acheive_it/pages/Login%20Signup/Screen/loginPage.dart';
-import 'package:acheive_it/pages/Login%20Signup/Screen/signupPage.dart';
+import 'package:acheive_it/pages/notifications/services/notification_service.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'firebase_options.dart';
@@ -11,6 +9,8 @@ void main() async {
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
+  WidgetsFlutterBinding.ensureInitialized();
+  await NotificationService.initializeNotification();
   runApp(const MyApp());
 }
 
@@ -24,15 +24,4 @@ class MyApp extends StatelessWidget {
       home: LoginPage(),
     );
   }
-  // Widget build(BuildContext context) {
-  //   return MaterialApp(
-  //     debugShowCheckedModeBanner: false,
-  //     initialRoute: '/',
-  //     routes: {
-  //       '/': (context) => LandingPage(),
-  //       '/signin': (context) => SignUpPage(),
-  //       '/login': (context) => LoginPage(),
-  //     },
-  //   );
-  // }
 }

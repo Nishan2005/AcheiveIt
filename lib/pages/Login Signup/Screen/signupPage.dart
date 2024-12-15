@@ -1,3 +1,4 @@
+import 'package:acheive_it/pages/Goals/screens/home.dart';
 import 'package:acheive_it/pages/Login%20Signup/Screen/loginPage.dart';
 import 'package:flutter/material.dart';
 import '../Services/authentication.dart';
@@ -51,7 +52,7 @@ class _SignUpPageState extends State<SignUpPage> {
       });
       Navigator.of(context).pushReplacement(
         MaterialPageRoute(
-          builder: (context) => const HomeScreen(),
+          builder: (context) => const home(),
         ),
       );
     } else {
@@ -122,7 +123,7 @@ class _SignUpPageState extends State<SignUpPage> {
                   ElevatedButton(
                     onPressed: signupUser,
                     style: ElevatedButton.styleFrom(
-                      backgroundColor: Colors.purple,
+                      backgroundColor: const Color(0xFFB39DCE),
                       padding: const EdgeInsets.symmetric(
                           vertical: 15, horizontal: 100),
                     ),
@@ -130,7 +131,12 @@ class _SignUpPageState extends State<SignUpPage> {
                         ? const CircularProgressIndicator(
                       color: Colors.white,
                     )
-                        : const Text('Sign Up'),
+                        : const Text('Sign Up',
+                      style: TextStyle(
+                      color: Colors.white,  // Set the text color to white
+                      fontSize: 18.0,       // Set the font size to make it bigger
+                      fontWeight: FontWeight.bold, // Optional: Make it bold if needed
+                    ),),
                   ),
                   const SizedBox(height: 20),
                   GestureDetector(

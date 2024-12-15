@@ -1,3 +1,4 @@
+import 'package:acheive_it/pages/Goals/screens/home.dart';
 import 'package:acheive_it/pages/Login%20Signup/Screen/forgotPass.dart';
 import 'package:acheive_it/pages/Login%20Signup/Screen/signupPage.dart';
 import 'package:acheive_it/pages/Login%20Signup/Services/google_auth.dart';
@@ -5,8 +6,8 @@ import 'package:acheive_it/pages/Login%20Signup/Widget/snackbar.dart';
 import 'package:acheive_it/pages/Login%20Signup/Services/authentication.dart';
 import 'package:flutter/material.dart';
 import '../Widget/text_field.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'home_screen.dart';
-import 'login.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
@@ -40,8 +41,10 @@ class _LoginPageState extends State<LoginPage> {
       setState(() {
         isLoading = false;
       });
-      Navigator.of(context).pushReplacement(
-        MaterialPageRoute(builder: (context) => const HomeScreen()),
+      Navigator.pushAndRemoveUntil(
+        context,
+        MaterialPageRoute(builder: (context) => const home()), // Make sure 'home' is your HomePage widget
+            (route) => false,  // This condition will remove all previous routes
       );
     } else {
       setState(() {
@@ -121,8 +124,8 @@ class _LoginPageState extends State<LoginPage> {
                   ElevatedButton(
                     onPressed: loginUser,
                     style: ElevatedButton.styleFrom(
-                        backgroundColor: Color(0xFF7C65A8),
-                        foregroundColor: Colors.white70, // Text color
+                        backgroundColor: const Color(0xFFB39DCE),
+                        foregroundColor: Colors.white, // Text color
                         padding: const EdgeInsets.symmetric(
                           vertical: 15, horizontal: 100),
                       textStyle: const TextStyle(
@@ -154,14 +157,17 @@ class _LoginPageState extends State<LoginPage> {
                   ElevatedButton.icon(
                     onPressed: () async {
                       await FirebaseServices().signInWithGoogle();
-                      Navigator.pushReplacement(
+                      Navigator.pushAndRemoveUntil(
                         context,
-                        MaterialPageRoute(
-                          builder: (context) => const HomeScreen(),
-                        ),
+                        MaterialPageRoute(builder: (context) => const home()), // Make sure 'home' is your HomePage widget
+                            (route) => false,  // This condition will remove all previous routes
                       );
                     },
-                    icon: const Icon(Icons.gpp_good_sharp, color: Colors.red),
+                    icon: Image.asset(
+                      'images/google.png', // Path to your image
+                      height: 24, // Adjust the size to fit
+                      width: 24,  // Adjust the size to fit
+                    ),
                     label: const Text('Sign in with Google'),
                     style: ElevatedButton.styleFrom(
                       backgroundColor: Colors.white,
